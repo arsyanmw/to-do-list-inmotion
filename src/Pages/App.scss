@@ -1,0 +1,34 @@
+@import "src/Assets/Scss/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+#containerApp {
+  height: 100vh;
+  //background-color: $bgTheme;
+  background: url("../Assets/img/bg.jpg") no-repeat;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+
+  .left, .right {
+      height: calc(100vh - 10px * 2);
+  }
+
+  .right {
+    background: #fff;
+    border-radius: 20px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 100%
+}
+
+::-webkit-scrollbar-thumb {
+  background: $bgTheme;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

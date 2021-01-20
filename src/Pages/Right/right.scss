@@ -1,0 +1,66 @@
+@import "src/Assets/Scss/global";
+
+.contentWrapperRight {
+  margin-top: 5vh;
+  height: calc(100vh - 20px - 5vh);
+  overflow: auto;
+  margin-bottom: 5vh;
+
+  #header {
+    .header {
+      h2 {
+        font-weight: 600;
+      }
+      p {
+        color: grey;
+      }
+    }
+
+    .userGroup {
+      .addUser {
+        display: flex;
+        align-items: center;
+
+        .addBtnUser {
+          background: transparent;
+          border: none;
+          color: #E0E7EF;
+        }
+      }
+    }
+  }
+
+  #todoToday, #upcoming {
+    margin-top: 20px;
+
+    #headerTodo, #headerUpcoming {
+      .headerText {
+        p {
+          font-weight: 600;
+          color: #000;
+        }
+      }
+
+      .optionTodo, .optionUpcoming {
+        Button {
+          display: flex;
+          align-items: center;
+          background: transparent;
+          border: none;
+          color: grey;
+          letter-spacing: 3px;
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .listTodo {
+      margin-top: 3vh;
+    }
+  }
+
+  #upcoming {
+    margin-bottom: 5vh;
+  }
+}

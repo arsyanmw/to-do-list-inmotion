@@ -1,0 +1,71 @@
+@import "src/assets/scss/global";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: flipY-loader forwards infinite;
+    animation-duration: 4s;
+
+    .purple {
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 50px solid $purple;
+      animation: purple-slide forwards infinite;
+      animation-duration: 2s;
+    }
+
+    .yellow {
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-top: 50px solid $yellow;
+      z-index: 9;
+    }
+
+    .pink {
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 50px solid $pink;
+      animation: pink-slide forwards infinite;
+      animation-duration: 2s;
+    }
+  }
+}
+
+@keyframes purple-slide {
+  20% {transform: translateX(0)}
+  50% {transform: translateX(100px)}
+  51%, 74% {transform: translateX(100px)}
+  78% {transform: translateX(100px)}
+  100% {transform: translateX(0)}
+}
+
+@keyframes pink-slide {
+  20% {transform: translateX(0)}
+  50% {transform: translateX(-100px)}
+  51%, 74% {transform: translateX(-100px)}
+  78% {transform: translateX(-100px)}
+  100% {transform: translateX(0)}
+}
+
+@keyframes flipY-loader {
+  0%, 25% {transform: rotateX(0deg)}
+  26% {transform: rotateX(0deg)}
+  38% {transform: rotateX(180deg)}
+  39%, 74% {transform: rotateX(180deg)}
+  75% {transform: rotateX(180deg)}
+  100% {transform: rotateX(0deg)}
+}

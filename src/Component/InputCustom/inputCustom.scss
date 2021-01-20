@@ -1,0 +1,29 @@
+.inpWrapper {
+  padding: 10px 5px;
+  background-color: #3C3F54;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 20px;
+  transition: .5s ease-in-out;
+
+  .iconSearch {
+    justify-content: center;
+    padding-top: 8px;
+    margin-right: 5px;
+  }
+
+  .inpSearch {
+    color: #fff;
+    background: transparent;
+    width: 100%;
+    border-style: none;
+    outline: none;
+  }
+
+  &:hover {
+    transition: .5s ease-in-out;
+    background-color: #494d66;
+  }
+}

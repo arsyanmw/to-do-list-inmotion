@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+.cardThumb {
+  display: flex;
+  justify-content: center;
+
+  .outline {
+    border: 3px solid #fff;
+    border-radius: 20px;
+    padding: 5px;
+    width: 80%;
+    height: 100px;
+
+    .card {
+      border-radius: 20px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      transition: .5s ease-in-out;
+    }
+  }
+
+  &:hover {
+    .card {
+      transition: .5s ease-in-out;
+      transform: scale(0.95);
+      cursor: pointer;
+    }
+  }
+}
+
+.textThumb {
+  margin-top: 10px;
+  text-align: center;
+  text-transform: capitalize;
+}
