@@ -18,6 +18,12 @@
     }
 
     .userGroup {
+      .userList {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
       .addUser {
         display: flex;
         align-items: center;

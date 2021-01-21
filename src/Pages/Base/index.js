@@ -1,4 +1,4 @@
-import { Row, Col } from 'antd';
+import {Row, Col} from 'antd';
 import LeftSide from "../Left";
 import RightSide from "../Right";
 import './base.scss';

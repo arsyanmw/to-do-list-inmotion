@@ -1,4 +1,4 @@
-import { Row, Col, Badge } from 'antd';
+import {Row, Col, Badge} from 'antd';
 import {useParams} from 'react-router-dom';
 import './projectThumb.scss';
 

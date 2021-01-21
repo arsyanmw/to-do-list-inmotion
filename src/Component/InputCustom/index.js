@@ -1,7 +1,4 @@
-import {
-    Row,
-    Col
-} from 'antd';
+import {Row, Col} from 'antd';
 import {Search} from '@material-ui/icons';
 import './inputCustom.scss'
 

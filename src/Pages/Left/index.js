@@ -8,7 +8,7 @@ import {InputCustom, ProjectThumb, MoreProjectThumb} from "../../Component";
 import './left.scss';
 
 const LeftSide = () => {
-    const [searchType, setSearchType] = useState("");
+    const [searchType, setSearchType] = useState(" ");
     const [searchResult, setSearchResult] = useState([]);
     const {projectsThumb} = useSelector(state => state.projectsReducer);
     const dispatch = useDispatch();
@@ -16,17 +16,20 @@ const LeftSide = () => {
     //getAPI
     useEffect(() => {
         dispatch(getDataProjects());
+
+        setTimeout(() => {
+            setSearchType("")
+        }, 1000)
+
     }, [dispatch]);
 
     useEffect(() => {
         const result = projectsThumb.projects && projectsThumb.projects.map(v => v.name).filter(proj => proj.toString().toLowerCase().includes(searchType));
         setSearchResult(result);
-    }, []);
+    }, [searchType]);
 
     // Count total project
     const moreProject = parseInt(projectsThumb.count) - parseInt(projectsThumb.projects && projectsThumb.projects.length);
-
-    console.log(searchResult);
 
     const handleSearch = (e) => {
         setSearchType(e);
