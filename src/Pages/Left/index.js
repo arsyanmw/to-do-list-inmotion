@@ -1,9 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import { Row, Col, Button } from 'antd';
 import {Sort} from "@material-ui/icons";
 import {useSelector, useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {getDataProjects} from "../../Config/redux/action";
-import {InputCustom, ProjectThumb, Loader} from "../../Component";
+import {InputCustom, ProjectThumb, MoreProjectThumb} from "../../Component";
 import './left.scss';
 
 const LeftSide = () => {
@@ -36,11 +37,19 @@ const LeftSide = () => {
                                 <Row gutter={[16, 20]} style={{marginTop: '5vh'}}>
                                     {projectsThumb.projects && projectsThumb.projects.map((v) => (
                                         <Col span={8} key={v.project_id}>
-                                            <ProjectThumb title={v.name} img={v.img} />
+                                            <Link to={v.path}>
+                                                <ProjectThumb
+                                                    title={v.name}
+                                                    img={v.img}
+                                                    path={v.path}
+                                                    notif={v.has_notification}
+                                                />
+                                            </Link>
                                         </Col>
                                     ))}
+
                                     <Col span={8}>
-                                        <ProjectThumb />
+                                        <MoreProjectThumb label={"8"} />
                                     </Col>
                                 </Row>
                             </Col>

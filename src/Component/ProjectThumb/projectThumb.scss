@@ -4,32 +4,25 @@
   display: flex;
   justify-content: center;
 
-  .outline {
-    //border: 3px solid #fff;
+  .card {
     border-radius: 20px;
-    padding: 5px;
-    width: 80%;
-    height: 100px;
-
-    .card {
-      border-radius: 20px;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      transition: .5s ease-in-out;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    outline: none;
+    transition: .5s ease-in-out;
+    width: 90px;
+    height: 90px;
   }
 
   &:hover {
-    .card {
-      transition: .5s ease-in-out;
-      transform: scale(0.95);
-      cursor: pointer;
-    }
+    transition: .5s ease-in-out;
+    transform: scale(0.95);
+    cursor: pointer;
+    outline: none;
   }
 }
 
@@ -37,4 +30,5 @@
   margin-top: 10px;
   text-align: center;
   text-transform: capitalize;
+  color: grey;
 }

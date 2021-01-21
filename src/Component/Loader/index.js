@@ -1,6 +1,5 @@
 import React from "react";
 import "./style/loader1.scss";
-import "./style/loader2.scss";
 
 const Loader = (props) => {
     const {type} = props;

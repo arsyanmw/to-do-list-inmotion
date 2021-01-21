@@ -33,5 +33,14 @@
       color: #fff;
       display: inline;
     }
+
+    .border {
+      padding: 5px;
+    }
+
+    .active {
+      border: 2px solid #fff;
+      border-radius: 20px;
+    }
   }
 }
