@@ -1,0 +1,26 @@
+.cardMoreThumb {
+  display: flex;
+  justify-content: center;
+
+  .cardMore {
+    background: #3C3F54;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    outline: none;
+    transition: .5s ease-in-out;
+    width: 90px;
+    height: 90px;
+  }
+
+  &:hover {
+    transition: .5s ease-in-out;
+    transform: scale(0.95);
+    cursor: pointer;
+    outline: none;
+  }
+}
