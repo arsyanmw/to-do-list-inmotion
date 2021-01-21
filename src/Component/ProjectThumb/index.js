@@ -8,6 +8,9 @@ const ProjectThumb = ({title, img, notif, path}) => {
     //getPath
     const getPath = path === "/"+id;
 
+    const str = title.split(' ');
+    const initial = str.map(i => i.charAt(0).toUpperCase());
+
     return(
         <Row justify={'center'}>
             <Col span={24} className="cardThumb">
@@ -16,16 +19,16 @@ const ProjectThumb = ({title, img, notif, path}) => {
                         !getPath ? (
                             <Badge status={"default"} style={{transform: 'scale(1.4)'}}>
                                 <div className="card" style={{backgroundImage: `url(${img})`}}>
-                                    GH
+                                    {initial}
                                 </div>
                             </Badge>
                         ) : (
                             <div className="card" style={{backgroundImage: `url(${img})`}}>
-                                GH
+                                {initial}
                             </div>
                         ) : (
                             <div className="card" style={{backgroundImage: `url(${img})`}}>
-                                GH
+                                {initial}
                             </div>
                         )}
                 </div>
