@@ -3,8 +3,8 @@ import LeftSide from "../Left";
 import RightSide from "../Right";
 import './base.scss';
 import {useEffect, useState} from "react";
-import {getDataProjects, getUsersProjects} from "../../Config/redux/action";
-import {Loader} from '../../Component'
+import {getDataProjects, getUsers} from "../../Config/redux/action";
+import {Loader, FAB} from '../../Component'
 import {useDispatch} from "react-redux";
 
 const Base = () => {
@@ -12,18 +12,15 @@ const Base = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setTimeout(() => {
-            dispatch(getUsersProjects());
-            dispatch(getDataProjects());
-        }, 5000)
-
+        dispatch(getUsers());
+        dispatch(getDataProjects());
         setIsLoading(false);
     }, [dispatch])
 
     return(
         isLoading ? (
-            <Loader type={1} />
-            ) : (
+            <Loader />
+        ) : (
             <Row id="containerApp">
                 <Col span={24}>
                     <Row>
@@ -32,6 +29,7 @@ const Base = () => {
                         </Col>
                         <Col xs={24} lg={12} className="right">
                             <RightSide/>
+                            <FAB/>
                         </Col>
                     </Row>
                 </Col>

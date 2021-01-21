@@ -9,7 +9,7 @@
 }
 
 .contentWrapperLeft {
-  height: calc(100vh - 10px * 2 - 32px);
+  max-height: calc(100vh - 10px * 2 - 32px);
 
   .headerText {
     h1 {
@@ -26,7 +26,7 @@
   }
 
   .galleryProject {
-    margin-top: 10vh;
+    margin-top: 8vh;
     color: grey;
 
     h2 {

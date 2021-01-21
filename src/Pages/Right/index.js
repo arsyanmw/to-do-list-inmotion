@@ -1,25 +1,35 @@
-import { Row, Col, Avatar, Button, Tag } from 'antd';
-import {CheckboxCustom} from '../../Component';
+import {useEffect} from "react";
+import {Row, Col, Avatar, Button, Tag} from 'antd';
 import {AddCircleOutline, MoreHoriz} from '@material-ui/icons';
-import './right.scss';
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {getUsersProjects, getDataProjects} from "../../Config/redux/action";
+import {CheckboxCustom} from '../../Component';
+import {getUsers, getDataProjects, getTodo} from "../../Config/redux/action";
+import './right.scss';
 
 const RightSide = () => {
     let {id} = useParams();
     const {users} = useSelector(state => state.usersReducer);
     const {projectsThumb} = useSelector(state => state.projectsReducer);
+    const {todo} = useSelector(state => state.todoReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getUsersProjects());
+        dispatch(getUsers());
         dispatch(getDataProjects());
+        dispatch(getTodo());
     }, [dispatch]);
 
-    const name = projectsThumb.projects && projectsThumb.projects.map(v => v.path === '/'+id ? v.name : null);
+    //Selector
+    const name = projectsThumb.projects && projectsThumb.projects.map(v => v.path === '/'+id ? v.name : null );
     const desc = projectsThumb.projects && projectsThumb.projects.map(v => v.path === '/'+id ? v.desc : null);
+
+    //getDate
+    const today = new Date().toISOString().slice(0,10);
+
+    // const handleCheck = (e) => {
+    //
+    // }
 
     return(
         <Row justify={'center'} className="contentWrapperRight">
@@ -59,54 +69,19 @@ const RightSide = () => {
                     </Col>
 
                     <Col span={24} className="listTodo">
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
+                        {todo.to_do && todo.to_do.map(v => v.path === id ?
+                            v.date === today ?
+                                (
+                                    <Row justify={'space-between'} align={'middle'} key={v.id}>
+                                        <Col span={20}>
+                                            <CheckboxCustom label={v.desc} check={v.isChecked} />
+                                        </Col>
+                                        <Col span={4}>
+                                            <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>{v.status}</Tag>
+                                        </Col>
+                                    </Row>
+                                ) : null
+                            : null)}
                     </Col>
                 </Row>
 
@@ -123,30 +98,19 @@ const RightSide = () => {
                     </Col>
 
                     <Col span={24} className="listTodo">
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
-                        <Row justify={'space-between'} align={'middle'}>
-                            <Col span={20}>
-                                <CheckboxCustom label={'Create inital page for homepage'} />
-                            </Col>
-                            <Col span={4}>
-                                <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>Waiting</Tag>
-                            </Col>
-                        </Row>
+                        {todo.to_do && todo.to_do.map(v => v.path === id ?
+                            v.date > today ?
+                                (
+                                    <Row justify={'space-between'} align={'middle'}>
+                                        <Col span={20}>
+                                            <CheckboxCustom label={v.desc} check={v.isChecked} />
+                                        </Col>
+                                        <Col span={4}>
+                                            <Tag color={'#E0F5F4'} style={{color: 'red', borderRadius: 20, fontWeight: 500, width: '100%', textAlign: 'center'}}>{v.status}</Tag>
+                                        </Col>
+                                    </Row>
+                                ) : null
+                            : null)}
                     </Col>
                 </Row>
             </Col>
